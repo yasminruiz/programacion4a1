@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded",( event) =>{
             window.localStorage.setItem("telefono", Telefono);
         }else{
             alert("almacenamiento local no soportado!!! ")
-        }
+        }//cambios
     });
     document.querySelector("#btnRecuperarAlumno").addEventListener("click", (e)=> {
         if('localstorage' in window){
