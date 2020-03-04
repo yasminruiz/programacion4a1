@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", e=>{
             "quetzal":7.63,
             "lempira":24.9,
             "cordoba":34.19
-            //hoy mod
+            //hoy mod 
         };
         let $res = document.querySelector("#lblRespuesta");
         $res.innerHTML = `Respuesta: ${ (monedas[a]/monedas[de]*cantidad).toFixed(2) }`;
