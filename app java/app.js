@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", e=>{
             "lempira":24.9,
             "cordoba":34.19
             //hoy mod 
+            //nopude cambiar el usuario de visual cod no se cambio
         };
         let $res = document.querySelector("#lblRespuesta");
         $res.innerHTML = `Respuesta: ${ (monedas[a]/monedas[de]*cantidad).toFixed(2) }`;
