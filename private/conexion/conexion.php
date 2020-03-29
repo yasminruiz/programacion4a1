@@ -1,10 +1,10 @@
 <?php
 
-class Conexion{
+class Conexion{//todo
     private $conexion='', $result='';
 
     public function Conexion($server, $user, $pass, $db){
-        $this->conexion = mysqli_connect($server,$user,$pass,$db) or die('NO pude conectarme al servidor de BD');
+        $this->conexion = mysqli_connect($server,$user,$pass,$db) or die('NO pude conectarme al servidor de conexion');
     }
     public function consultas($sql=''){
         $this->result = mysqli_query($this->conexion,$sql) or die(mysqli_error($this->conexion));
@@ -17,4 +17,3 @@ class Conexion{
     }
 }
 ?>
-
