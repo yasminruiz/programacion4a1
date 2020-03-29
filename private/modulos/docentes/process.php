@@ -21,20 +21,16 @@ class docente{
         $this->validar_datos();
     }
     private function validar_datos(){
-        if( empty($this->datos['codigo']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el codigo del docente';
-        }
+        
         if( empty($this->datos['nombre']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el nombre del docente';
+            $this->respuesta['msg'] = 'nombre de docente';
         }
-        if( empty($this->datos['nit']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el NIT del docente';
-        }
+        
         if( empty($this->datos['direccion']) ){
-            $this->respuesta['msg'] = 'por favor ingrese la direccion del docente';
+            $this->respuesta['msg'] = ' direccion de docente';
         }
         if( empty($this->datos['telefono']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el telefono del docente';
+            $this->respuesta['msg'] = ' telefono de docente';
         }
         $this->almacenar_docente();
     }
@@ -42,10 +38,8 @@ class docente{
         if( $this->respuesta['msg']==='correcto' ){
             if( $this->datos['accion']==='nuevo' ){
                 $this->db->consultas('
-                    INSERT INTO docentes (codigo,nombre,nit,direccion,telefono) VALUES(
-                        "'. $this->datos['codigo'] .'",
+                    INSERT INTO docentes (nombre,direccion,telefono) VALUES(
                         "'. $this->datos['nombre'] .'",
-                        "'. $this->datos['nit'] .'",
                         "'. $this->datos['direccion'] .'",
                         "'. $this->datos['telefono'] .'"
                     )
@@ -54,11 +48,9 @@ class docente{
             } else if( $this->datos['accion']==='modificar' ){
                 $this->db->consultas('
                    UPDATE docentes SET
-                        codigo     = "'. $this->datos['codigo'] .'",
-                        nombre     = "'. $this->datos['nombre'] .'",
-                        nit        = "'. $this->datos['nit'] .'",
-                        direccion  = "'. $this->datos['direccion'] .'",
-                        telefono   = "'. $this->datos['telefono'] .'"
+                      nombre     = "'. $this->datos['nombre'] .'",
+                      direccion  = "'. $this->datos['direccion'] .'",
+                      telefono   = "'. $this->datos['telefono'] .'"
                     WHERE idDocente = "'. $this->datos['idDocente'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
@@ -79,7 +71,7 @@ class docente{
             from docentes
             where docentes.idDocente = "'.$idDocente.'"
         ');
-        $this->respuesta['msg'] = 'Registro eliminado correctamente';
+        $this->respuesta['msg'] = 'el registro se elimino';
     }
 }
 ?>
